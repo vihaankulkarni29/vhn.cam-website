@@ -1,61 +1,66 @@
-import { AnimatedGrid } from "@/components/AnimatedGrid";
 import { Typewriter } from "@/components/Typewriter";
+import { AnimatedGrid } from "@/components/AnimatedGrid";
 import { BentoGrid } from "@/components/BentoGrid";
-import { ArrowRight } from "lucide-react";
+import { StatsTicker } from "@/components/StatsTicker";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-zinc-950 text-zinc-50 selection:bg-emerald-500/30">
-      {/* Background Effect */}
-      <AnimatedGrid />
+    <main className="min-h-screen bg-zinc-950 text-zinc-50 selection:bg-cyan-500/30">
+      {/* Hero Section */}
+      <section className="relative h-screen w-full flex flex-col items-center justify-center px-4 overflow-hidden">
+        <AnimatedGrid />
+        
+        <div className="relative z-10 max-w-5xl w-full">
+          <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-center">
+            Architecting Systems at the <br />
+            <span className="bg-gradient-to-r from-emerald-400 to-cyan-500 bg-clip-text text-transparent">
+              Intersection of Biology and Business
+            </span>
+          </h1>
 
-      {/* Main Scrollable Content */}
-      <div className="relative overflow-y-auto">
-        {/* Hero Section */}
-        <section className="relative h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
-          <main className="relative z-10 max-w-5xl w-full text-center space-y-8">
-            {/* Headline */}
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-cyan-500 pb-2">
-                Architecting Systems at the Intersection of Biology and Business.
-              </h1>
-              
-              {/* Sub-Headline with Typewriter Effect */}
-              <div className="flex justify-center items-center gap-2">
-                <Typewriter 
-                  text="> Executing: High-Throughput Genomics | B2B OSINT | HPC Optimization" 
-                  delay={0.5} 
-                />
-              </div>
-            </div>
+          <div className="mt-8 flex justify-center">
+            <Typewriter 
+              text="> Executing: High-Throughput Genomics | B2B OSINT | HPC Optimization" 
+              delay={0.05}
+            />
+          </div>
 
-            {/* CTA Button */}
-            <div className="flex justify-center pt-8">
-              <button className="group relative px-8 py-3 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-100 font-medium transition-all duration-300 hover:scale-105 active:scale-95">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
-                <div className="absolute inset-px rounded-full bg-zinc-950" />
-                
-                <span className="relative flex items-center gap-2">
-                  Initialize System Build
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </span>
-                
-                <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 opacity-20 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-              </button>
-            </div>
-          </main>
+          <div className="mt-12 flex justify-center">
+            <button className="group relative px-8 py-4 bg-zinc-900 border border-zinc-800 rounded-full overflow-hidden transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative font-mono text-sm tracking-[0.2em] uppercase">
+                Initialize System Build
+              </span>
+            </button>
+          </div>
+        </div>
 
-          {/* Footer Info (Subtle) */}
-          <footer className="absolute bottom-8 left-0 right-0 text-center">
-            <p className="text-zinc-600 font-mono text-[10px] tracking-widest uppercase">
-              [ Vihaan Inc. | System v1.0.42 ]
-            </p>
-          </footer>
-        </section>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-12 flex flex-col items-center gap-2 opacity-50">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">Scroll to Explore</span>
+          <div className="h-12 w-[1px] bg-gradient-to-b from-cyan-500 to-transparent" />
+        </div>
+      </section>
 
-        {/* Bento Grid Section */}
-        <BentoGrid />
-      </div>
-    </div>
+      {/* Proof of Work - Bento Grid */}
+      <section className="py-24 px-4 bg-zinc-950">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <h2 className="text-xs font-mono uppercase tracking-[0.5em] text-zinc-500">01 // Flagship Architectures</h2>
+            <p className="mt-4 text-3xl font-bold tracking-tight">Proof of Work</p>
+          </div>
+          <BentoGrid />
+        </div>
+      </section>
+
+      {/* Authority Ticker */}
+      <section className="py-12 bg-zinc-950 border-t border-zinc-900">
+        <StatsTicker />
+      </section>
+
+      {/* Footer */}
+      <Footer />
+    </main>
   );
 }
